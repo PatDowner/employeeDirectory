@@ -26,26 +26,34 @@ class App extends Component {
 
 
       <>
+        <div className="container-fluid">
         <h1>Employee Directory</h1>
-        <button onClick={this.handleSearchEmployee}>Show All Employees</button>
-        <table className="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Picture</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Cell</th>
-              <th scope="col">Gender</th>
-              <th scope="col">Location</th>
-            </tr>
-          </thead>
-          <tbody>
-          {
-            this.state.employees.map(employee => <TR employee={employee} />)
-          }
-          </tbody>
-        </table>
+        <br></br>
+        <button className="btn btn-primary" onClick={this.handleSearchEmployee}>Show All Employees</button>
+        <br></br>
+        <br></br>
+        <br></br>
+
+
+          <table className="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Picture</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Cell</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                this.state.employees.map(employee => <TR employee={employee} />)
+              }
+            </tbody>
+          </table>
+        </div>
 
 
       </>
