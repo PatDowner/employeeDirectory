@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Card from './components/Card'
+import TR from './components/TR'
 import axios from 'axios'
 // import './App.css'
 
@@ -28,12 +28,24 @@ class App extends Component {
       <>
         <h1>Employee Directory</h1>
         <button onClick={this.handleSearchEmployee}>Show All Employees</button>
-        <div className="row">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Picture</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Cell</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
           {
-            this.state.employees.map(employee => <Card employee={employee} />)
+            this.state.employees.map(employee => <TR employee={employee} />)
           }
-        </div>
-
+          </tbody>
+        </table>
 
 
       </>
