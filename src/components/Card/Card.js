@@ -2,10 +2,10 @@ import React from 'react'
 
 const Card = (props) => {
   return (
-    <div className="col-4">
+    <div className="col-12 col-sm-6 col-md-4 col-lg-3 border">
       <img src={props.employee.picture.large} className="card-img-top" alt="..." />
       <div className="card-body">
-        <h5 className="card-title">{props.employee.name.title} {props.employee.name.first} {props.employee.name.last}</h5>
+        <h5 className="card-title">{props.employee.name.title}. {props.employee.name.first} {props.employee.name.last}</h5>
       </div>
       <ul className="list-group list-group-flush">
         <li value={props.employee.email} className="list-group-item"><b>Email:</b> {props.employee.email}</li>

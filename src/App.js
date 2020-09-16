@@ -6,16 +6,6 @@ import axios from 'axios'
 class App extends Component {
 
   state = {
-    picture: '',
-    title: '',
-    first: '',
-    last: '',
-    email: '',
-    // phone: '',
-    // cell: '',
-    // gender: '',
-    // stateLoc: '',
-    // country: '',
     employees: []
   }
 
@@ -24,7 +14,6 @@ class App extends Component {
     axios.get(`https://randomuser.me/api?results=20`)
       .then(({ data }) => {
         let employees = JSON.parse(JSON.stringify(this.state.employees))
-        employees.push(data.results)
         this.setState({ employees: data.results })
         console.log(data)
         console.log(employees)
@@ -41,7 +30,8 @@ class App extends Component {
         <button onClick={this.handleSearchEmployee}>Show All Employees</button>
         <div className="row">
           {
-            this.state.employees.map(employee => <Card employee={employee} />)}
+            this.state.employees.map(employee => <Card employee={employee} />)
+          }
         </div>
 
 
