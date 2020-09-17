@@ -13,10 +13,15 @@ class App extends Component {
   componentDidMount() {
     axios.get(`https://randomuser.me/api?results=20`)
       .then(({ data }) => {
-        // let employees = JSON.parse(JSON.stringify(this.state.employees))
         this.setState({ employees: data.results })
       })
       .catch(err => console.error(err))
+  }
+
+  handleSort = event => {
+    event.preventDefault()
+    let employees = this.state.employees.sort((a, b) => (a.name.last > b.name.last) ? 1 : -1)
+    this.setState({ employees: employees })
   }
 
   handleFilter = event => {
@@ -24,8 +29,6 @@ class App extends Component {
     console.log(event.target.value)
     axios.get(`https://randomuser.me/api?results=20&nat=${event.target.value}`)
       .then(({ data }) => {
-
-        // let employees = JSON.parse(JSON.stringify(this.state.employees))
         this.setState({ employees: data.results })
       })
       .catch(err => console.error(err))
@@ -39,12 +42,16 @@ class App extends Component {
         <div className="container-fluid">
           <h1>Employee Directory</h1>
           <br></br>
-          <div className="dropdown">
+          <button className="btn btn-secondary d-inline" onClick={this.handleSort}>
+            Sort by Last Name
+            </button>
+          <div className="dropdown d-inline">
             <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Filter by Country
             </button>
 
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <option className="dropdown-item" value="" onClick={this.handleFilter}>All Countries</option>
               <option className="dropdown-item" value="AU" onClick={this.handleFilter}>Australia</option>
               <option className="dropdown-item" value="BR" onClick={this.handleFilter}>Brazil</option>
               <option className="dropdown-item" value="CA" onClick={this.handleFilter}>Canada</option>
