@@ -10,8 +10,8 @@ class Jumbotron extends Component {
         <p className="lead">This is a simple app to view and filter employee directory records built using React.</p>
         <hr className="my-4" />
         <div className="d-flex justify-content-around">
-          <button className="btn btn-primary d-inline" value="last" onClick={this.handleSort}>Sort by Last Name</button>
-          <Dropdown />
+          <button className="btn btn-primary d-inline" value="last" onClick={this.props.handleSort}>Sort by Last Name</button>
+          <Dropdown handleFilter={this.props.handleFilter}/>
         </div>
       </div>
     )

@@ -26,13 +26,24 @@ class App extends Component {
     this.setState({ employees: employees })
   }
 
+  handleFilter = event => {
+    event.preventDefault()
+    console.log(event.target.value)
+    axios.get(`https://randomuser.me/api?results=20&nat=${event.target.value}`)
+      .then(({ data }) => {
+        this.setState({ employees: data.results })
+      })
+      .catch(err => console.error(err))
+  }
+
+
   render() {
     return (
 
 
       <>
         <div className="container-fluid">
-          <Jumbotron />
+          <Jumbotron handleSort={this.handleSort} handleFilter={this.handleFilter}/>
 
           <table className="table table-striped table-hover">
             <thead>
