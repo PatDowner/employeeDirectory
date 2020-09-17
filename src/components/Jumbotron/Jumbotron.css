@@ -1,0 +1,7 @@
+.jumbotron {
+  background: url(https://itbrief.co.nz/uploads/story/2019/10/30/human_resources.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
